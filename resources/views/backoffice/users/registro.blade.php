@@ -69,8 +69,6 @@
     <!-- Content -->
 
     <div class="authentication-wrapper authentication-cover">
-    
-    @include('backoffice._partials.header')
 
       <div class="authentication-inner row m-0">
         <!-- /Left Text -->
@@ -108,57 +106,80 @@
             @endif
 
             <form id="formAuthentication" class="mb-6" action="{{ route('user.form.registro') }}" method="POST">
-            @csrf
-              <div class="mb-6 form-control-validation">
-                <label for="name" class="form-label">Nombre completo</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="name"
-                  name="name"
-                  placeholder="EJ: Juan Pérez Jackson"
-                  autofocus />
-              </div>
-              <div class="mb-6 form-control-validation">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" name="username" placeholder="Ingrese su email" />
-              </div>
-              <div class="mb-6 form-password-toggle form-control-validation">
-                <label class="form-label" for="password">Contraseña</label>
-                <div class="input-group input-group-merge">
-                  <input
-                    type="password"
-                    id="password"
-                    class="form-control"
-                    name="password"
-                    placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                    aria-describedby="password" />
-                  <span class="input-group-text cursor-pointer"><i class="icon-base ti tabler-eye-off"></i></span>
+                @csrf
+
+                <div class="mb-6 form-control-validation">
+                    <label for="rut" class="form-label">RUT</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="rut"
+                        name="rut"
+                        placeholder="Ej: 12.345.678-9"
+                        value="{{ old('rut') }}"
+                        autofocus />
                 </div>
-              </div>
-              <div class="mb-6 form-password-toggle form-control-validation">
-                <label class="form-label" for="password_confirmation">Vuelva a escribir su contraseña</label>
-                <div class="input-group input-group-merge">
-                  <input
-                    type="password"
-                    id="password_confirmation"
-                    class="form-control"
-                    name="password_confirmation"
-                    placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                    aria-describedby="password" />
-                  <span class="input-group-text cursor-pointer"><i class="icon-base ti tabler-eye-off"></i></span>
+
+                <div class="mb-6 form-control-validation">
+                    <label for="name" class="form-label">Nombre completo</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="name"
+                        name="name"
+                        placeholder="Ej: Juan Pérez Jackson"
+                        value="{{ old('name') }}" />
                 </div>
-              </div>
-              <div class="mb-6 mt-8">
-                <div class="form-check mb-8 ms-2">
-                  <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" />
-                  <label class="form-check-label" for="terms-conditions">
-                    Acepto
-                    <a href="javascript:void(0);">términos y condiciones</a>
-                  </label>
+
+                <div class="mb-6 form-control-validation">
+                    <label for="email" class="form-label">Correo electrónico</label>
+                    <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        name="email"
+                        placeholder="Ej: juan@example.com"
+                        value="{{ old('email') }}" />
                 </div>
-              </div>
-              <button class="btn btn-primary d-grid w-100">Registerarse</button>
+
+                <div class="mb-6 form-password-toggle form-control-validation">
+                    <label class="form-label" for="password">Contraseña</label>
+                    <div class="input-group input-group-merge">
+                        <input
+                            type="password"
+                            id="password"
+                            class="form-control"
+                            name="password"
+                            placeholder="••••••••••••"
+                            aria-describedby="password" />
+                        <span class="input-group-text cursor-pointer"><i class="icon-base ti tabler-eye-off"></i></span>
+                    </div>
+                </div>
+
+                <div class="mb-6 form-password-toggle form-control-validation">
+                    <label class="form-label" for="password_confirmation">Confirmar contraseña</label>
+                    <div class="input-group input-group-merge">
+                        <input
+                            type="password"
+                            id="password_confirmation"
+                            class="form-control"
+                            name="password_confirmation"
+                            placeholder="••••••••••••"
+                            aria-describedby="password_confirmation" />
+                        <span class="input-group-text cursor-pointer"><i class="icon-base ti tabler-eye-off"></i></span>
+                    </div>
+                </div>
+
+                <div class="mb-6 mt-8">
+                    <div class="form-check mb-8 ms-2">
+                        <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" />
+                        <label class="form-check-label" for="terms-conditions">
+                            Acepto <a href="javascript:void(0);">términos y condiciones</a>
+                        </label>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary d-grid w-100">Registrarse</button>
             </form>
 
             <p class="text-center">

@@ -69,7 +69,6 @@
     <!-- Content -->
 
     <div class="authentication-wrapper authentication-cover">
-      @include('backoffice._partials.header')
       <div class="authentication-inner row m-0">
         <!-- /Left Text -->
         <div class="d-none d-xl-flex col-xl-8 p-0">
@@ -112,46 +111,31 @@
 
             <form id="formAuthentication" class="mb-6" action="{{ route('user.form.login') }}" method="POST">    
                 @csrf
-              <div class="mb-6 form-control-validation">
-                <label for="email" class="form-label">Usuario</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email"
-                  name="username"
-                  placeholder="Ingrese su usuario"
-                  value="scabezas@ciisa.cl"
-                  autofocus />
-              </div>
-              <div class="mb-6 form-password-toggle form-control-validation">
-                <label class="form-label" for="password">Contraseña</label>
-                <div class="input-group input-group-merge">
-                  <input
-                    type="password"
-                    id="password"
-                    class="form-control"
-                    name="password"
-                    placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                    aria-describedby="password" 
-                    value="holaMundo" 
-                    />
-                  <span class="input-group-text cursor-pointer"><i class="icon-base ti tabler-eye-off"></i></span>
+                <div class="mb-6 form-control-validation">
+                    <label for="rut" class="form-label">RUT</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="rut"
+                        name="rut"
+                        placeholder="Ingrese su RUT"
+                        value="{{ old('rut') }}"
+                        autofocus />
                 </div>
-              </div>
-              <div class="my-8">
-                <div class="d-flex justify-content-between">
-                  <div class="form-check mb-0 ms-2">
-                    <input class="form-check-input" type="checkbox" id="remember-me" />
-                    <label class="form-check-label" for="remember-me"> Recordar </label>
-                  </div>
-                  <a href="auth-forgot-password-cover.html">
-                    <p class="mb-0">¿Olvidó su contraseña?</p>
-                  </a>
+                <div class="mb-6 form-password-toggle form-control-validation">
+                    <label class="form-label" for="password">Contraseña</label>
+                    <div class="input-group input-group-merge">
+                        <input
+                            type="password"
+                            id="password"
+                            class="form-control"
+                            name="password"
+                            placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" />
+                        <span class="input-group-text cursor-pointer"><i class="icon-base ti tabler-eye-off"></i></span>
+                    </div>
                 </div>
-              </div>
-              <button class="btn btn-primary d-grid w-100" type="submit">Iniciar Sesión</button>
+                <button class="btn btn-primary d-grid w-100" type="submit">Iniciar Sesión</button>
             </form>
-
             <p class="text-center">
               <span>¿Eres un usuario nuevo?</span>
               <a href="{{ route('user.form.show.registro') }}">

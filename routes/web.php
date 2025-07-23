@@ -14,3 +14,5 @@ Route::get('/backoffice/create-user', [UserController::class, 'showFormRegistro'
 Route::post('/backoffice/create-user', [UserController::class, 'guardarNuevo'])->name('user.form.registro');
 
 Route::post('/backoffice/logout', [UserController::class, 'logout'])->name('logout');
+Route::get('/perfil', [UserController::class, 'verPerfil'])->name('user.perfil')->middleware('auth');
+Route::post('/perfil/actualizar', [UserController::class, 'actualizarPerfil'])->name('user.actualizar')->middleware('auth');
